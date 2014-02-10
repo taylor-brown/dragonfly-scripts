@@ -1,0 +1,12 @@
+# Maps phonetic pronunciation of a nick name to the HipChat username.
+usernames.map = {
+  "All":            "all",
+  "Here":           "here",
+  "Brannen":        "BrannenHuske",
+  "Dave":           "DaveBenvenuti",
+  "Ernie":          "ErnieMakris",
+  "Mark":           "MarkSexton",
+  "Mike":           "MikeAmaral",
+  "Paul":           "PaulKingston",
+  "Rhino":          "RindressMacDonald",
+  }

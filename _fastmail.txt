@@ -1,0 +1,12 @@
+mailboxes.map = {
+  "inbox":           "Inbox",
+  "archive":         "Archive",
+  "drafts":          "Drafts",
+  "sent":            "Sent",
+  "spam":            "Spam",
+  "trash":           "Trash",
+  "rubber":          "Rubber",
+  "selenium":        "Selenium",
+  "sane later":      "SaneLater",
+  "sane archive":    "SaneArchive"
+}
