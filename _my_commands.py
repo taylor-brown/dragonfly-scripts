@@ -12,7 +12,8 @@ config.cmd.map = Item(
         "cd home": Text("cd ~") + Key("enter"),
         "cd downloads": Text("cd ~/Downloads") + Key("enter"),
         "cd drop box": Text("cd ~/Dropbox") + Key("enter"),
-        "cd NatLink": Text("cd C:\NatLink\NatLink\MacroSystem") + Key("enter"),
+        #"cd NatLink": Text("cd C:\NatLink\NatLink\MacroSystem") + Key("enter"),
+        "cd NatLink": Text("cd /c/NatLink/NatLink/MacroSystem") + Key("enter"),
 
         "(open|start) rails console": Text("./script/rails c") + Key("enter"),
         "fix line endings": Text("find . -type f -exec dos2unix {} \; && chmod +x script/*") + Key("enter"),
@@ -32,10 +33,20 @@ config.cmd.map = Item(
         "ssh ping4 (development|V M)": Text("ssh development.ping4inc.com") + Key("enter"),
         "ssh Kevin dot mogotest dot com": Text("ssh kevin.mogotest.com") + Key("enter"),
 
+        "ssh Cassandra 1": Text("ssh cas1.ping4central.com") + Key("enter"),
+        "ssh Cassandra 2": Text("ssh cas2.ping4central.com") + Key("enter"),
+        "ssh Cassandra 3": Text("ssh cas3.ping4central.com") + Key("enter"),
+        "ssh Cassandra 4": Text("ssh cas4.ping4central.com") + Key("enter"),
+        "ssh Cassandra 5": Text("ssh cas5.ping4central.com") + Key("enter"),
+        "ssh Cassandra 6": Text("ssh cas6.ping4central.com") + Key("enter"),
+        "ssh Cassandra 7": Text("ssh cas7.ping4central.com") + Key("enter"),
+        "ssh Cassandra 8": Text("ssh cas8.ping4central.com") + Key("enter"),
+
         "tail app logs": Text("cd ~") + Key("enter") + Text("current") + Key("enter") + Text("tail -f log/*.log") + Key("enter"),
         "tail (torquebox|torque box) log": Text("tail -f /var/log/torquebox/torquebox.log") + Key("enter"),
-        "tail development logs": Text("tail -f log.log"
-                                      "/development.log") + Key("enter"),
+        "tail development logs": Text("tail -f log.log/development.log") + Key("enter"),
+
+        "edit ssh config": Text("vim ~/.ssh/config") + Key("enter"),
 
         "(open|start) program": Key("a-space"),
 
