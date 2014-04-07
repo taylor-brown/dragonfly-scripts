@@ -32,6 +32,7 @@ config.cmd.map = Item(
         "ssh melchior": Text("ssh nirvdrum@melchior") + Key("enter"),
         "ssh ping4 (development|V M)": Text("ssh development.ping4inc.com") + Key("enter"),
         "ssh Kevin dot mogotest dot com": Text("ssh kevin.mogotest.com") + Key("enter"),
+        "ssh melchior": Text("ssh melchior") + Key("enter"),
 
         "ssh Cassandra 1": Text("ssh cas1.ping4central.com") + Key("enter"),
         "ssh Cassandra 2": Text("ssh cas2.ping4central.com") + Key("enter"),
