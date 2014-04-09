@@ -8,6 +8,8 @@ config.cmd.map = Item(
         "cd (mogo test|mogotest) remote": Text("cd ~/dev/workspaces/mogotest-helix") + Key("enter"),
         "cd ping4": Text("cd ~/dev/workspaces/ping4app") + Key("enter"),
         "cd ping4 remote": Text("cd ~/ping4-helix") + Key("enter"),
+        "cd rubber": Text("cd ~/dev/workspaces/rubber") + Key("enter"),
+        "cd rubber test": Text("cd ~/dev/workspaces/rubbertest") + Key("enter"),
         "cd workspaces": Text("cd ~/dev/workspaces") + Key("enter"),
         "cd home": Text("cd ~") + Key("enter"),
         "cd downloads": Text("cd ~/Downloads") + Key("enter"),
