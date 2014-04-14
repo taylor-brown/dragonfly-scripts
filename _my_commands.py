@@ -1,4 +1,11 @@
-from dragonfly import Config, Section, Item, MappingRule, Grammar, Text, Key, Dictation
+from dragonfly import Config, Section, Item, MappingRule, Grammar, Dictation
+
+from lib.dynamic_aenea import (
+    DynamicAction,
+    GlobalDynamicContext,
+    Key,
+    Text
+)
 
 config = Config("my commands")
 config.cmd = Section("helpers")
@@ -51,7 +58,7 @@ config.cmd.map = Item(
 
         "edit ssh config": Text("vim ~/.ssh/config") + Key("enter"),
 
-        "(open|start) program": Key("a-space"),
+        "(open|start) program": DynamicAction(Key("a-space"), Key("f1")),
 
         # Custom vocabulary.
         "nerve drum": Text("nirvdrum"),
@@ -86,7 +93,7 @@ class MyCommandsRule(MappingRule):
     ]
 
 global_context = None  # Context is None, so grammar will be globally active.
-grammar = Grammar("My commands", context=global_context)  # Create this module's grammar.
+grammar = Grammar("My commands", context=GlobalDynamicContext())  # Create this module's grammar.
 grammar.add_rule(MyCommandsRule())  # Add the top-level rule.
 grammar.load()  # Load the grammar.
 
