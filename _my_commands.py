@@ -92,7 +92,6 @@ class MyCommandsRule(MappingRule):
         Dictation("text"),
     ]
 
-global_context = None  # Context is None, so grammar will be globally active.
 grammar = Grammar("My commands", context=GlobalDynamicContext())  # Create this module's grammar.
 grammar.add_rule(MyCommandsRule())  # Add the top-level rule.
 grammar.load()  # Load the grammar.
