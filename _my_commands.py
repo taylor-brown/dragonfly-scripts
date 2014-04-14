@@ -77,7 +77,7 @@ config.cmd.map = Item(
         "IE 1002": Text("ie1002"),
 
         "ruby version": Text("ruby --version") + Key("enter"),
-        "change ruby M R I": Text("rbenv shell 2.1.0") + Key("enter"),
+        "change ruby M R I": Text("rbenv shell 2.1.1") + Key("enter"),
         "change ruby (jay ruby|jruby)": Text("rbenv shell jruby-1.7.10") + Key("enter"),
 
         "(torque box|TorqueBox) run": Text("torquebox run -b 0.0.0.0") + Key("enter"),
