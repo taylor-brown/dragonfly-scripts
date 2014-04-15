@@ -43,6 +43,10 @@ config.cmd.map = Item(
         "ssh Kevin dot mogotest dot com": Text("ssh kevin.mogotest.com") + Key("enter"),
         "ssh melchior": Text("ssh melchior") + Key("enter"),
 
+        "ssh app (oh|zero) 1": Text("ssh app01.mogotest.com") + Key("enter"),
+        "ssh app (oh|zero) 2": Text("ssh app02.mogotest.com") + Key("enter"),
+        "ssh tools": Text("ssh tools.mogotest.com") + Key("enter"),
+
         "ssh Cassandra 1": Text("ssh cas1.ping4central.com") + Key("enter"),
         "ssh Cassandra 2": Text("ssh cas2.ping4central.com") + Key("enter"),
         "ssh Cassandra 3": Text("ssh cas3.ping4central.com") + Key("enter"),
