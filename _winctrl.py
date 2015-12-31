@@ -88,7 +88,7 @@ config.load()
 #===========================================================================
 # Create this module's main grammar object.
 
-grammar = Grammar("window control")
+terminator_grammar = Grammar("window control")
 
 
 #---------------------------------------------------------------------------
@@ -184,7 +184,7 @@ class NameWinRule(CompoundRule):
         win_names[name] = window
         self._log.debug("%s: named foreground window '%s'." % (self, window))
 
-grammar.add_rule(NameWinRule())
+terminator_grammar.add_rule(NameWinRule())
 
 
 #---------------------------------------------------------------------------
@@ -212,7 +212,7 @@ class FocusWinRule(CompoundRule):
             else:
                 break
 
-grammar.add_rule(FocusWinRule())
+terminator_grammar.add_rule(FocusWinRule())
 
 
 #---------------------------------------------------------------------------
@@ -231,7 +231,7 @@ class FocusTitleRule(CompoundRule):
         except ActionError:
             self._log.warning("No window with that name found.")
 
-grammar.add_rule(FocusTitleRule())
+terminator_grammar.add_rule(FocusTitleRule())
 
 
 #---------------------------------------------------------------------------
@@ -325,7 +325,7 @@ class TranslateRule(CompoundRule):
         pos.translate(dx, dy)
         window.set_position(pos)
 
-grammar.add_rule(TranslateRule())
+terminator_grammar.add_rule(TranslateRule())
 
 
 #---------------------------------------------------------------------------
@@ -369,7 +369,7 @@ class ResizeRule(CompoundRule):
         pos = Rectangle(x1, y1, x2-x1, y2-y1)
         window.set_position(pos)
 
-grammar.add_rule(ResizeRule())
+terminator_grammar.add_rule(ResizeRule())
 
 
 #---------------------------------------------------------------------------
@@ -404,13 +404,13 @@ class StretchRule(CompoundRule):
         pos = Rectangle(x1, y1, x2-x1, y2-y1)
         window.set_position(pos)
 
-grammar.add_rule(StretchRule())
+terminator_grammar.add_rule(StretchRule())
 
 
 
 
-grammar.load()
+terminator_grammar.load()
 def unload():
-    global grammar
+    global terminator_grammar
     if grammar: grammar.unload()
     grammar = None

@@ -43,14 +43,14 @@ series_rule = SeriesMappingRule(
 
 
 context = AppContext(executable="devenv", title="microsoft visual studio")
-grammar = Grammar("visual_studio_control", context=context)
-grammar.add_rule(series_rule)
-grammar.load()
+terminator_grammar = Grammar("visual_studio_control", context=context)
+terminator_grammar.add_rule(series_rule)
+terminator_grammar.load()
 
 
 def unload():
     """Unload function which will be called at unload time."""
-    global grammar
+    global terminator_grammar
     if grammar:
         grammar.unload()
     grammar = None

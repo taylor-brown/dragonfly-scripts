@@ -59,13 +59,13 @@ class CommandRule(MappingRule):
   ]
 
 global_context = None # Context is None, so grammar will be globally active.
-grammar = Grammar("Fastmail commands", context=global_context)
-grammar.add_rule(CommandRule())
-grammar.load()
+terminator_grammar = Grammar("Fastmail commands", context=global_context)
+terminator_grammar.add_rule(CommandRule())
+terminator_grammar.load()
 
 # Unload function which will be called at unload time.
 def unload():
-  global grammar
+  global terminator_grammar
   if grammar:
     grammar.unload()
   grammar = None

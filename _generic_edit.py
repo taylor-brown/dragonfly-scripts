@@ -536,14 +536,14 @@ class RepeatRule(CompoundRule):
                 action.execute()
         release.execute()
 
-grammar = Grammar("Generic edit", context=GlobalDynamicContext())
-grammar.add_rule(RepeatRule())  # Add the top-level rule.
-grammar.load()  # Load the grammar.
+terminator_grammar = Grammar("Generic edit", context=GlobalDynamicContext())
+terminator_grammar.add_rule(RepeatRule())  # Add the top-level rule.
+terminator_grammar.load()  # Load the grammar.
 
 
 def unload():
     """Unload function which will be called at unload time."""
-    global grammar
+    global terminator_grammar
     if grammar:
         grammar.unload()
     grammar = None

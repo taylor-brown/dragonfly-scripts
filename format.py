@@ -5,7 +5,7 @@ from dragonfly import (
     Pause,
 )
 
-from lib.dynamic_aenea import (
+from aenea import (
     Key,
     Text,
 )

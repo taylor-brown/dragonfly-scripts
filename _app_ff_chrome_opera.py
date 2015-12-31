@@ -53,7 +53,10 @@ mapping = {
    "close find": Key("escape"),
    "find previous [<n>]": Key("s-f3/10:%(n)d"),
    "find next [<n>]": Key("f3/10:%(n)d"),
-
+   'up': Key('up:5'),
+   'down': Key('down:5'),
+   'page down': Key('down:25'),
+   'page up': Key('up:25'),
    "go to tab [<n>]": DynamicAction(Key("c-%(n)d"), Key("a-%(n)d")) # Not supported by Opera.
 }
 
@@ -81,14 +84,14 @@ rules = MappingRule(
 )
 
 
-grammar = Grammar("FF, Chrome, and Opera", context=DynamicContext(winContext, nixContext))
-grammar.add_rule(rules)
-grammar.load()
+terminator_grammar = Grammar("FF, Chrome, and Opera", context=DynamicContext(winContext, nixContext))
+terminator_grammar.add_rule(rules)
+terminator_grammar.load()
 
 
 def unload():
     """Unload function which will be called at unload time."""
-    global grammar
+    global terminator_grammar
     if grammar:
         grammar.unload()
     grammar = None

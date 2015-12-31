@@ -211,14 +211,14 @@ series_rule = SeriesMappingRule(
     }
 )
 
-grammar = Grammar("Git commands", context=GlobalDynamicContext())
-grammar.add_rule(series_rule)
-grammar.load()
-grammar.disable()
+terminator_grammar = Grammar("Git commands", context=GlobalDynamicContext())
+terminator_grammar.add_rule(series_rule)
+terminator_grammar.load()
+terminator_grammar.disable()
 
 
 def dynamic_enable():
-    global grammar
+    global terminator_grammar
     if grammar.enabled:
         return False
     else:
@@ -227,7 +227,7 @@ def dynamic_enable():
 
 
 def dynamic_disable():
-    global grammar
+    global terminator_grammar
     if grammar.enabled:
         grammar.disable()
         return True
@@ -236,7 +236,7 @@ def dynamic_disable():
 
 
 def is_enabled():
-    global grammar
+    global terminator_grammar
     if grammar.enabled:
         return True
     else:
@@ -245,7 +245,7 @@ def is_enabled():
 
 # Unload function which will be called at unload time.
 def unload():
-    global grammar
+    global terminator_grammar
     if grammar:
         grammar.unload()
     grammar = None

@@ -74,14 +74,14 @@ winContext = winContext1 | winContext2
 nixContext = NixAppContext(executable="java", title="Eclipse")
 
 
-grammar = Grammar("Eclipse", context=DynamicContext(winContext, nixContext))
-grammar.add_rule(rules)
-grammar.load()
+terminator_grammar = Grammar("Eclipse", context=DynamicContext(winContext, nixContext))
+terminator_grammar.add_rule(rules)
+terminator_grammar.load()
 
 
 def unload():
     """Unload function which will be called at unload time."""
-    global grammar
+    global terminator_grammar
     if grammar:
         grammar.unload()
     grammar = None

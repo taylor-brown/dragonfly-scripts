@@ -62,14 +62,14 @@ rules = MappingRule (
 )
 
 context = AppContext(executable="console")
-grammar = Grammar("ConsoleZ", context=context)
-grammar.add_rule(rules)
-grammar.load()
+terminator_grammar = Grammar("ConsoleZ", context=context)
+terminator_grammar.add_rule(rules)
+terminator_grammar.load()
 
 
 def unload():
     """Unload function which will be called at unload time."""
-    global grammar
+    global terminator_grammar
     if grammar:
         grammar.unload()
     grammar = None

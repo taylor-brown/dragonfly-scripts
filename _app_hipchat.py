@@ -58,14 +58,14 @@ class ChatRule(MappingRule):
 nixContext = NixAppContext(executable="hipchat")
 winContext = AppContext(executable="hipchat")
 
-grammar = Grammar("hipchat_general", context=DynamicContext(winContext, nixContext))
-grammar.add_rule(NavigationRule())
-grammar.add_rule(ChatRule())
-grammar.load()
+terminator_grammar = Grammar("hipchat_general", context=DynamicContext(winContext, nixContext))
+terminator_grammar.add_rule(NavigationRule())
+terminator_grammar.add_rule(ChatRule())
+terminator_grammar.load()
 
 # Unload function which will be called by natlink at unload time.
 def unload():
-    global grammar
+    global terminator_grammar
     if grammar: grammar.unload()
     grammar = None
 

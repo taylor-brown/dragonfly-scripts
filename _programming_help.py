@@ -76,14 +76,14 @@ series_rule = SeriesMappingRule(
     }
 )
 
-grammar = Grammar("Programming help", context=GlobalDynamicContext())
-grammar.add_rule(series_rule)
-grammar.load()
+terminator_grammar = Grammar("Programming help", context=GlobalDynamicContext())
+terminator_grammar.add_rule(series_rule)
+terminator_grammar.load()
 
 
 # Unload function which will be called at unload time.
 def unload():
-    global grammar
+    global terminator_grammar
     if grammar:
         grammar.unload()
     grammar = None

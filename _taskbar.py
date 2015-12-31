@@ -102,15 +102,15 @@ class IconRule(MappingRule):
 #---------------------------------------------------------------------------
 # Load the grammar instance and define how to unload it.
 
-grammar = Grammar("taskbar")
-grammar.add_rule(TaskRule())
-grammar.add_rule(IconRule())
-grammar.load()
+terminator_grammar = Grammar("taskbar")
+terminator_grammar.add_rule(TaskRule())
+terminator_grammar.add_rule(IconRule())
+terminator_grammar.load()
 
 
 # Unload function which will be called by natlink at unload time.
 def unload():
-    global grammar
+    global terminator_grammar
     if grammar:
         grammar.unload()
     grammar = None

@@ -148,13 +148,13 @@ if config.get("aenea.enabled", False) == True:
         }
     )
 
-    grammar = Grammar("Unity desktop grammar", context=aenea.global_context)
-    grammar.add_rule(rules)
-    grammar.load()
+    terminator_grammar = Grammar("Unity desktop grammar", context=aenea.global_context)
+    terminator_grammar.add_rule(rules)
+    terminator_grammar.load()
 
     # Unload function which will be called at unload time.
     def unload():
-        global grammar
+        global terminator_grammar
         if grammar:
             grammar.unload()
         grammar = None

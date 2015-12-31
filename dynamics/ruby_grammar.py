@@ -219,14 +219,14 @@ rules = MappingRule(
     }
 )
 
-grammar = Grammar("Ruby grammar", context=GlobalDynamicContext())
-grammar.add_rule(rules)
-grammar.load()
-grammar.disable()
+terminator_grammar = Grammar("Ruby grammar", context=GlobalDynamicContext())
+terminator_grammar.add_rule(rules)
+terminator_grammar.load()
+terminator_grammar.disable()
 
 
 def dynamic_enable():
-    global grammar
+    global terminator_grammar
     if grammar.enabled:
         return False
     else:
@@ -234,7 +234,7 @@ def dynamic_enable():
         return True
 
 def dynamic_disable():
-    global grammar
+    global terminator_grammar
     if grammar.enabled:
         grammar.disable()
         return True
@@ -242,7 +242,7 @@ def dynamic_disable():
         return False
 
 def is_enabled():
-    global grammar
+    global terminator_grammar
     if grammar.enabled:
         return True
     else:
@@ -251,7 +251,7 @@ def is_enabled():
 
 # Unload function which will be called at unload time.
 def unload():
-    global grammar
+    global terminator_grammar
     if grammar:
         grammar.unload()
     grammar = None

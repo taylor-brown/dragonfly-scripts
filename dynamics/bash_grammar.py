@@ -12,7 +12,7 @@ from lib.dynamic_aenea import (
     Text,
 )
 
-from lib.text import SCText
+
 import lib.format
 
 DYN_MODULE_NAME = "bash"
@@ -29,20 +29,20 @@ rules = MappingRule(
     mapping={
         # Commands and keywords:
         "apt cache search": Text("apt-cache search "),
-        "apt cache search <text>": SCText("apt-cache search %(text)s"),
+        "apt cache search <text>": Text("apt-cache search %(text)s"),
         "apt cache show": Text("apt-cache show "),
-        "apt cache show <text>": SCText("apt-get show %(text)s"),
+        "apt cache show <text>": Text("apt-get show %(text)s"),
         "apt get install": Text("apt-get install "),
-        "apt get install <text>": SCText("apt-get install %(text)s"),
+        "apt get install <text>": Text("apt-get install %(text)s"),
         "apt get update": Text("apt-get update") + Key("enter"),
         "sudo apt get install": Text("sudo apt-get install "),
-        "sudo apt get install <text>": SCText("sudo apt-get install %(text)s"),
+        "sudo apt get install <text>": Text("sudo apt-get install %(text)s"),
         "sudo apt get update": Text("sudo apt-get update") + Key("enter"),
         "background": Text("bg "),
         "(cat|C A T)": Text("cat "),
-        "(cat|C A T) <text>": SCText("cat %(text)s"),
+        "(cat|C A T) <text>": Text("cat %(text)s"),
         "(change (directory|dir)|C D)": Text("cd "),
-        "(change (directory|dir)|C D) <text>": SCText("cd %(text)s"),
+        "(change (directory|dir)|C D) <text>": Text("cd %(text)s"),
         "[press] control break": Key("ctrl:down, c/10, ctrl:up"),
         "(copy|C P)": Text("cp "),
         "(copy|C P) recursive": Text("cp -r "),
@@ -60,15 +60,15 @@ rules = MappingRule(
         "find process": Text("ps aux | grep -i "),
         "find process <text>": Text("ps aux | grep -i ") + Function(lib.format.snake_case_text),
         "find": Text("find . -name "),
-        "find <text>": SCText("find . -name %(text)s"),
+        "find <text>": Text("find . -name %(text)s"),
         "[go to] end of line": Key("c-e"),
         "[go to] start of line": Key("c-a"),
         "grep": Text("grep "),
         "grep invert": Text("grep -v "),
-        "grep <text>": SCText("grep %(text)s"),
-        "grep invert <text>": SCText("grep -v %(text)s"),
+        "grep <text>": Text("grep %(text)s"),
+        "grep invert <text>": Text("grep -v %(text)s"),
         "grep recursive": Text("grep -rn ") +  Key("dquote/3, dquote/3") + Text(" *") + Key("left/3:3"),  # @IgnorePep8
-        "grep recursive <text>": Text("grep -rn ") + Key("dquote/3") + SCText("%(text)s") + Key("dquote/3") + Text(" *") + Key("left/3:3"),  # @IgnorePep8
+        "grep recursive <text>": Text("grep -rn ") + Key("dquote/3") + Text("%(text)s") + Key("dquote/3") + Text(" *") + Key("left/3:3"),  # @IgnorePep8
         "history": Text("history "),
         "ifconfig": Text("ifconfig "),
         "(iptables|I P tables) list": Text("iptables -L"),
@@ -79,51 +79,51 @@ rules = MappingRule(
         "kill line": Key("c-k"),
         "(link|L N)": Text("ln "),
         "list files": Text("ls -la") + Key("enter"),
-        "list files <text>": SCText("ls -la %(text)s"),
+        "list files <text>": Text("ls -la %(text)s"),
         "list files time sort": Text("ls -lat") + Key("enter"),
         "make (directory|dir)": Text("mkdir "),
-        "make (directory|dir) <text>": SCText("mkdir %(text)s"),
+        "make (directory|dir) <text>": Text("mkdir %(text)s"),
         "move": Text("mv "),
-        "move <text>": SCText("mv %(text)s"),
+        "move <text>": Text("mv %(text)s"),
         "paste terminal": Key("cs-v/3"),
         "pipe": Text(" | "),
         "ping": Text("ping "),
         "(print working directory|P W D)": Text("pwd") + Key("enter"),
         "([list] processes [list]|P S)": Text("ps -ef"),
         "(R M|remove file)": Text("rm "),
-        "(R M|remove file) <text>": SCText("rm %(text)s"),
+        "(R M|remove file) <text>": Text("rm %(text)s"),
         "remove (directory|dir|folder|recursive)": Text("rm -rf "),
-        "remove (directory|dir|folder|recursive) <text>": SCText("rm -rf %(text)s"),  # @IgnorePep8
+        "remove (directory|dir|folder|recursive) <text>": Text("rm -rf %(text)s"),  # @IgnorePep8
         "(sed|S E D)": Text("sed "),
         "(secure copy|S C P)": Text("scp "),
-        "(secure copy|S C P) <text>": SCText("scp %(text)s"),
+        "(secure copy|S C P) <text>": Text("scp %(text)s"),
         "(secure shell|S S H)": Text("ssh "),
-        "(secure shell|S S H) <text>": SCText("ssh %(text)s"),
+        "(secure shell|S S H) <text>": Text("ssh %(text)s"),
         "soft link": Text("ln -s "),
-        "soft link <text>": SCText("ln -s %(text)s"),
+        "soft link <text>": Text("ln -s %(text)s"),
         "sudo": Text("sudo "),
         "(switch user|S U)": Text("su "),
         "(switch user|S U) login": Text("su - "),
         "tail": Text("tail "),
-        "tail <text>": SCText("tail %(text)s"),
+        "tail <text>": Text("tail %(text)s"),
         "tail (F|follow)": Text("tail -f "),
-        "tail (F|follow) <text>": SCText("tail -f %(text)s"),
+        "tail (F|follow) <text>": Text("tail -f %(text)s"),
         "telnet": Text("telnet "),
         "touch": Text("touch "),
-        "touch <text>": SCText("touch %(text)s"),
+        "touch <text>": Text("touch %(text)s"),
         "vim": Text("vim "),
-        "vim <text>": SCText("vim %(text)s"),
+        "vim <text>": Text("vim %(text)s"),
         "(W C|word count)": Text("wc "),
         "(W C|word count) lines": Text("wc -l "),
         "W get ": Text("wget "),
         "X args": Text("xargs "),
         "X D O tool": Text("xdotool "),
         "X M L lint": Text("xmllint "),
-        "X M L lint <text>": SCText("xmllint %(text)s"),
+        "X M L lint <text>": Text("xmllint %(text)s"),
         "X M L lint format": Text("xmllint -format "),
-        "X M L lint format <text>": SCText("xmllint -format %(text)s"),
+        "X M L lint format <text>": Text("xmllint -format %(text)s"),
         "X M L lint schema": Text("xmllint -schema "),
-        "X M L lint schema <text>": SCText("xmllint -schema %(text)s"),
+        "X M L lint schema <text>": Text("xmllint -schema %(text)s"),
         "X prop": Text("xprop "),
         "X win info": Text("xwininfo "),
     },
@@ -136,33 +136,33 @@ rules = MappingRule(
     }
 )
 
-grammar = Grammar("Python grammar", context=GlobalDynamicContext())
-grammar.add_rule(rules)
-grammar.load()
-grammar.disable()
+terminator_grammar = Grammar("Python grammar", context=GlobalDynamicContext())
+terminator_grammar.add_rule(rules)
+terminator_grammar.load()
+terminator_grammar.disable()
 
 
 def dynamic_enable():
-    global grammar
-    if grammar.enabled:
+    global terminator_grammar
+    if terminator_grammar.enabled:
         return False
     else:
-        grammar.enable()
+        terminator_grammar.enable()
         return True
 
 
 def dynamic_disable():
-    global grammar
-    if grammar.enabled:
-        grammar.disable()
+    global terminator_grammar
+    if terminator_grammar.enabled:
+        terminator_grammar.disable()
         return True
     else:
         return False
 
 
 def is_enabled():
-    global grammar
-    if grammar.enabled:
+    global terminator_grammar
+    if terminator_grammar.enabled:
         return True
     else:
         return False
@@ -170,7 +170,7 @@ def is_enabled():
 
 # Unload function which will be called at unload time.
 def unload():
-    global grammar
-    if grammar:
-        grammar.unload()
-    grammar = None
+    global terminator_grammar
+    if terminator_grammar:
+        terminator_grammar.unload()
+    terminator_grammar = None

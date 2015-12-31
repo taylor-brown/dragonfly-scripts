@@ -235,9 +235,9 @@ series_rule = SeriesMappingRule(
     }
 )
 
-grammar = Grammar("Dynamic manager", context=None)
-grammar.add_rule(series_rule)
-grammar.load()
+terminator_grammar = Grammar("Dynamic manager", context=None)
+terminator_grammar.add_rule(series_rule)
+terminator_grammar.load()
 
 
 notify()  # Notify that Dragonfly is ready with a sound.
@@ -250,7 +250,7 @@ def unload():
     for module in moduleMapping.values():
         module.unload()
 
-    global grammar
+    global terminator_grammar
     if grammar:
         grammar.unload()
     grammar = None
